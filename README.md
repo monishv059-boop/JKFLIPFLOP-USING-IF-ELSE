@@ -40,12 +40,42 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
+~~~
+module exp4(
+input clk,
+input j,
+input k,
+output reg q,
+output reg qbar
+);
+
+always @(posedge clk) begin
+if (j == 0 && k == 0) begin
+    q <= q;
+    qbar <= qbar;
+end 
+else if (j == 0 && k == 1) begin
+    q <= 0;
+    qbar <= 1;
+end 
+else if (j == 1 && k == 0) begin
+    q <= 1;
+    qbar <= 0;
+end 
+else if (j == 1 && k == 1) begin
+    q <= ~q;
+    qbar <= ~qbar;
+end
+end
+
+endmodule
+~~~
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0fae98b2-4660-44ff-9ae0-f396e1032725" />
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6edefcc3-5007-4dec-9f59-2e10c7b287dd" />
 
-**RESULTS**<img width="1920" height="1080" alt="exe4(1)" src="https://github.com/user-attachments/assets/5ef4be6c-5f58-4cf6-bb32-230f7edf3481" />
-
-<img width="1920" height="1080" alt="exe4(2)" src="https://github.com/user-attachments/assets/6e241692-28f7-4aa1-b4e6-5242d9fe21e5" />
-<img width="1920" height="1080" alt="exe4(3)" src="https://github.com/user-attachments/assets/3120831e-219a-40d5-a7cf-de0703c38d03" />
+**RESULTS**
+Thus the Flip flop designed and the truth tables is verified using Quartus software.
